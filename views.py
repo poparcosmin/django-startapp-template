@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from .models import {{ app_name|capfirst }}
 from .forms import {{app_name|capfirst}}Form
 
-class HomePageView(TemplateView):
+class {{ app_name|capfirst }}View(TemplateView):
     template_name = '{{ app_name }}/{{ app_name }}_home.html'
 
 class {{ app_name|capfirst }}ListView(ListView):
