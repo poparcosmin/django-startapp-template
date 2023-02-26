@@ -12,7 +12,6 @@ class {{ app_name|capfirst }}ListView(ListView):
     model = {{ app_name|capfirst }}
     template_name = "= "{{ app_name }}/{{ app_name }}_list.html"
 
-
 class {{ app_name|capfirst }}DetailView(DetailView):
     # Display details for a single {{ app_name }} object
     model = {{ app_name|capfirst }}

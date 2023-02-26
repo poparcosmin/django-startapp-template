@@ -11,7 +11,7 @@ app_name = "{{ app_name }}"
 
 urlpatterns = [
     path('', HomePageView.as_view(), name='homepage'),
-    path("", {{ app_name|capfirst }}ListView.as_view(), name="{{ app_name }}_list"),
+    path("list/", {{ app_name|capfirst }}ListView.as_view(), name="{{ app_name }}_list"),
     path("<int:pk>/", {{ app_name|capfirst }}DetailView.as_view(), name="{{ app_name }}_detail"),
     path("create/", {{ app_name|capfirst }}CreateView.as_view(), name="{{ app_name }}_create"),
     path("<int:pk>/update/", {{ app_name|capfirst }}UpdateView.as_view(), name="{{ app_name }}_update"),
