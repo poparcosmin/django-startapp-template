@@ -9,14 +9,10 @@
 
 {% url 'account_email' as email_url %}
 
-<p>{% blocktranslate %}This part of the site requires us to verify that
-you are who you claim to be. For this purpose, we require that you
-verify ownership of your e-mail address. {% endblocktranslate %}</p>
+<p>{% blocktranslate %}Aceasta parte a site-ului necesita verificarea faptului ca sunteti persoana pe care o pretindeti a fi. In acest scop, este necesar sa verificati autenticitatea adresei dvs. de e-mail. {% endblocktranslate %}</p>
 
-<p>{% blocktranslate %}We have sent an e-mail to you for
-verification. Please click on the link inside this e-mail. Please
-contact us if you do not receive it within a few minutes.{% endblocktranslate %}</p>
+<p>{% blocktranslate %}V-am trimis un e-mail de verificare. Va rugam sa faceti clic pe linkul din acest e-mail. Va rugam sa ne contactati daca nu il primiti in cateva minute.{% endblocktranslate %}</p>
 
-<p>{% blocktranslate %}<strong>Note:</strong> you can still <a href="{{ email_url }}">change your e-mail address</a>.{% endblocktranslate %}</p>
+<p>{% blocktranslate %}<strong>Notă:</strong> încă poți <a href="{{ email_url }}">schimba adresa de email</a>.{% endblocktranslate %}</p>
 {% endblock %}
 {%- endraw %}
