@@ -5,7 +5,7 @@ from .models import {{ app_name|capfirst }}
 from .forms import {{app_name|capfirst}}Form
 
 class HomePageView(TemplateView):
-    template_name = 'homepage.html'
+    template_name = '{{ app_name }}/{{ app_name }}_home.html'
 
 class {{ app_name|capfirst }}ListView(ListView):
     # Display a list of {{ app_name }} objects
