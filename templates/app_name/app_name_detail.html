@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ object.nume }}</h1>
+
+    <p><strong>Alege:</strong> {{ object.get_alegere_display }}</p>
+    <p><strong>Descriere privată:</strong> {{ object.descriere_privata }}</p>
+
+    <p><a href="{% url '{{ app_name }}_update' object.pk %}" class="btn btn-primary">Edit</a></p>
+
+    <form method="post" action="{% url '{{ app_name }}_delete' object.pk %}">
+        {% csrf_token %}
+        <input type="submit" value="Delete" class="btn btn-danger">
+    </form>
+{% endblock %}

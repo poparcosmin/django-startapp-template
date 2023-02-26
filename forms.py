@@ -8,5 +8,5 @@ class {{app_name|capfirst}}Form(forms.ModelForm):
         fields = ["nume", "creat"]
         labels = {
             "nume": "Nume",
-            "creat": "Adresă",
+            "creat": "Creat la data",
         }
