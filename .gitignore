@@ -1,0 +1,6 @@
+# Sublime Text specific
+*.sublime-workspace
+*.sublime-project
+*.sublime-keymap
+*.sublime-mousemap
+*.sublime-settings
