@@ -45,3 +45,11 @@ class {{ app_name|capfirst }}(models.Model):
         if self.soft_delete:
             self.soft_delete = False
         super().save(*args, **kwargs)
+
+    ### metode pentru url slug
+    # def save(self, *args, **kwargs):
+    #     self.slug = slugify(self.name)
+    #     super().save(*args, **kwargs)
+
+    # def get_absolute_url(self):
+    #     return reverse("app2:app2", args=[str(self.slug)])
