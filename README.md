@@ -5,3 +5,14 @@ python3.12 manage.py startapp --exclude=_static --exclude=_templates --verbosity
 ### this are default template file for project, excluded from app. just copy in project root
 --exclude=_static 
 --exclude=_templates
+
+
+
+### IMPORT Fixtures
+
+python3.12 manage.py loaddata "{{dir}}/{{app_name}}/fixtures/fixture_{{app_name}}.json.gz";
+
+
+#### EXPORT Fixtures
+
+python3.12 manage.py dumpdata dashboard --output={{dir}}/{{app_name}}/fixtures/fixture_{{app_name}}.json.gz
