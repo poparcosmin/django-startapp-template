@@ -10,9 +10,9 @@ python3.12 manage.py startapp --exclude=_static --exclude=_templates --verbosity
 
 ### IMPORT Fixtures
 
-python3.12 manage.py loaddata "{{app_directory }}/{{app_name}}/fixtures/fixture_{{app_name}}.json.gz";
+python3.12 manage.py loaddata "{{app_directory }}/fixtures/fixture_{{app_name}}.json.gz";
 
 
 #### EXPORT Fixtures
 
-python3.12 manage.py dumpdata dashboard --output={{app_directory }}/{{app_name}}/fixtures/fixture_{{app_name}}.json.gz
+python3.12 manage.py dumpdata dashboard --output={{app_directory }}/fixtures/fixture_{{app_name}}.json.gz
