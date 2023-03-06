@@ -1,0 +1,49 @@
+{% load static %}
+{% load django_htmx %}
+
+<!doctype html>
+<html lang="ro">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block head_title %}PAFF{% endblock head_title %}</title>
+    <meta name="description" content="{% block meta_desc %}PAFF{% endblock meta_desc %}">
+    <meta name="keywords" content="{% block meta_keywords %}PAFF{% endblock meta_keywords %}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.paff.ro/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'build.css' %}">
+    <script src="{% static 'htmx.min.js' %}" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.css">
+    
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    {% block head_social %}{% endblock head_social %}
+
+
+</head>
+<body>
+{% include "base/top_nav.html" %}
+
+<div class="container-fluid col-md-8 mt-5">
+    <div>
+        {% block content %}
+            <h1>Home</h1>
+        {% endblock content %}
+    </div>
+</div>
+
+{% include "base/footer.html" %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+{% django_htmx_script %}
+<script>
+    document.body.addEventListener('htmx:configRequest', (e) => {
+        e.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+    })
+</script>
+</body>
+</html>
