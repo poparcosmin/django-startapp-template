@@ -1,4 +1,4 @@
-
+{% raw %}
 {% block content %}
     <h1>{% if form.instance.pk %}Edit{% else %}Add{% endif %} app_name</h1>
 
@@ -10,3 +10,4 @@
         <a href="{% url 'app_name_detail' form.instance.pk %}" class="btn btn-secondary">Cancel</a>
     </form>
 {% endblock %}
+{% endraw %}

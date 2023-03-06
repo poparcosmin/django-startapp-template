@@ -1,4 +1,4 @@
-
+{% raw %}
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -12,3 +12,4 @@
         <a href="{% url 'app_name_detail' form.instance.pk %}" class="btn btn-secondary">Cancel</a>
     </form>
 {% endblock %}
+{% endraw %}
