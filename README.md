@@ -27,4 +27,4 @@ python3.12 manage.py startapp --exclude=_static --exclude=_templates --exclude="
 --extension=py,md
 
 
-python3.12 manage.py startapp --exclude=_static --exclude=_templates --extension=py,md --verbosity=3 --template=https://github.com/poparcosmin/django-startapp-template/archive/master.zip app3
+python3.12 manage.py startapp --exclude=_static --exclude=_templates --extension=py,md,html --verbosity=3 --template=https://github.com/poparcosmin/django-startapp-template/archive/master.zip app

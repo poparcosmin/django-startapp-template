@@ -1,4 +1,4 @@
-{% raw %}{% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
     <h1>Confirm Delete</h1>
@@ -7,9 +7,6 @@
     <form method="post">
         {% csrf_token %}
         <input type="submit" value="Yes, delete." class="btn btn-danger">
-        {%- endraw %}
         <a href="{% url 'app_name_detail' object.pk %}" class="btn btn-secondary">Cancel</a>
-        {% raw %}
     </form>
 {% endblock %}
-{%- endraw %}
