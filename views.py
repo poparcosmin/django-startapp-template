@@ -1,5 +1,6 @@
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView,TemplateView
+from django.http import Http404
 from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView,TemplateView
 
 from .models import {{ app_name|capfirst }}
 from .forms import {{app_name|capfirst}}Form
@@ -14,18 +15,18 @@ class {{ app_name|capfirst }}ListView(ListView):
 
 class {{ app_name|capfirst }}DetailView(DetailView):
     # Display details for a single {{ app_name }} object
-    model = {{ app_name|capfirst }}
+    model = Adresa
     template_name = "{{ app_name }}/{{ app_name }}_detail.html"
 
     def get(self, request, *args, **kwargs):
         try:
             # Get the object requested and render the template
             self.object = self.get_object()
-            context = self.get_context_data(object=self.object)
-            return self.render_to_response(context)
-        except:
+        except {{ app_name|capfirst }}.DoesNotExist:
             # Handle case where object does not exist
-            return HttpResponseNotFound("Object not found")
+            raise Http404("{{ app_name|capfirst }} not found")
+        context = self.get_context_data(object=self.object)
+        return self.render_to_response(context)    
 
 
 class {{ app_name|capfirst }}CreateView(CreateView):
