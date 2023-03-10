@@ -6,17 +6,17 @@ from .models import {{ app_name|capfirst }}
 from .forms import {{app_name|capfirst}}Form
 
 class {{ app_name|capfirst }}View(TemplateView):
-    template_name = '{{ app_name }}/{{ app_name }}_home.html'
+    template_name = '{{ app_name }}/home.html'
 
 class {{ app_name|capfirst }}ListView(ListView):
     # Display a list of {{ app_name }} objects
     model = {{ app_name|capfirst }}
-    template_name = "{{ app_name }}/{{ app_name }}_list.html"
+    template_name = "{{ app_name }}/list.html"
 
 class {{ app_name|capfirst }}DetailView(DetailView):
     # Display details for a single {{ app_name }} object
     model = Adresa
-    template_name = "{{ app_name }}/{{ app_name }}_detail.html"
+    template_name = "{{ app_name }}/detail.html"
 
     def get(self, request, *args, **kwargs):
         try:
@@ -33,12 +33,14 @@ class {{ app_name|capfirst }}CreateView(CreateView):
     # Display a form to create a new {{ app_name }} object
     model = {{ app_name|capfirst }}
     form_class = {{app_name|capfirst}}Form # replace with your own form, if desired
-    success_url = reverse_lazy("{{ app_name }}_list") # replace with desired URL
-    template_name = "{{ app_name }}/{{ app_name }}_form.html"
+    success_url = reverse_lazy("create") # replace with desired URL
+    template_name = "{{ app_name }}/form.html"
 
-    def form_valid(self, form):
-        # Override form_valid to set any additional fields before saving
-        form.instance.created_by = self.request.user
+   def form_valid(self, form):
+        # Set additional fields before saving
+        adresa = form.save(commit=False)
+        adresa.created_by = self.request.user
+        adresa.save()
         return super().form_valid(form)
 
 
@@ -46,11 +48,11 @@ class {{ app_name|capfirst }}UpdateView(UpdateView):
     # Display a form to update an existing {{ app_name }} object
     model = {{ app_name|capfirst }}
     fields = ["nume", "creat"]
-    template_name = "{{ app_name }}/{{ app_name }}_form.html"
+    template_name = "{{ app_name }}/form.html"
 
 
 class {{ app_name|capfirst }}DeleteView(DeleteView):
     # Display a confirmation page to delete a {{ app_name }} object
     model = {{ app_name|capfirst }}
-    template_name = "{{ app_name }}/{{ app_name }}_confirm_delete.html"
-    success_url = reverse_lazy("{{ app_name }}_list") # replace with desired URL
+    template_name = "{{ app_name }}/confirm_delete.html"
+    success_url = reverse_lazy("list") # replace with desired URL

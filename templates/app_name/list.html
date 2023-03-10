@@ -1,12 +1,14 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
+
 {% block content %}
     <h1>{% if form.instance.pk %}Edit{% else %}Add{% endif %} <<<app_name>>></h1>
 
     <form method="post" class="form">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form|crispy }}
 
         <button type="submit" class="btn btn-primary">Save</button>
-        <a href="{% url '<<<app_name>>>_detail' form.instance.pk %}" class="btn btn-secondary">Cancel</a>
+        <a href="{% url '<<<app_name>>>:detail' form.instance.pk %}" class="btn btn-secondary">Cancel</a>
     </form>
 {% endblock %}

@@ -38,7 +38,7 @@ class {{ app_name|capfirst }}(models.Model):
         return self.nume
 
     def get_absolute_url(self):
-        return reverse("{{ app_name }}:{{ app_name }}", args=[str(self.pk)])
+        return reverse("{{ app_name }}:detail", args=[str(self.pk)])
 
     def save(self, *args, **kwargs):
         # override the save method to ensure soft_delete is False when an object is saved
@@ -52,4 +52,4 @@ class {{ app_name|capfirst }}(models.Model):
     #     super().save(*args, **kwargs)
 
     # def get_absolute_url(self):
-    #     return reverse("app2:app2", args=[str(self.slug)])
+    #     return reverse("{{ app_name }}:detail", args=[str(self.slug)])
