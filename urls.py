@@ -11,8 +11,7 @@ from .views import (
 app_name = "{{ app_name }}"
 
 urlpatterns = [
-    path('', {{ app_name|capfirst }}HomeView.as_view(), name='home'),
-    path("lista/", {{ app_name|capfirst }}ListView.as_view(), name="list"),
+    path("", {{ app_name|capfirst }}ListView.as_view(), name="list"),
     path("<int:pk>/", {{ app_name|capfirst }}DetailView.as_view(), name="detail"),
     path("creeaza/", {{ app_name|capfirst }}CreateView.as_view(), name="create"),
     path("<int:pk>/update/", {{ app_name|capfirst }}UpdateView.as_view(), name="update"),

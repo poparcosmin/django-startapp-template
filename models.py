@@ -45,6 +45,9 @@ class {{ app_name|capfirst }}(models.Model):
         if self.soft_delete:
             self.soft_delete = False
         super().save(*args, **kwargs)
+        
+    def get_fields(self):
+        return [{"name": field.name, "value": getattr(self, field.name)} for field in self._meta.fields]
 
     ### metode pentru url slug
     # def save(self, *args, **kwargs):

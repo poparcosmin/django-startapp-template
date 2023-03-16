@@ -1,10 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>{{ object.nume }}</h1>
-
-    <p><strong>Alege:</strong> {{ object.get_alegere_display }}</p>
-    <p><strong>Descriere privată:</strong> {{ object.descriere_privata }}</p>
+    {% for field in object.get_fields %}
+        <p><b>{{ field.name }}</b>: {{ field.value }}</p>
+    {% endfor %}
 
     <p><a href="{% url '<<<app_name>>>:update' object.pk %}" class="btn btn-primary">Edit</a></p>
 
